@@ -19,6 +19,10 @@ if len(sys.argv) != 5:
     print "dmin - high resolution limit"
     print "nshells - number of resolution shells"
     print ""
+    print "Output is provided on standard output. Run: "
+    print "python Rpixel.py <XDS_ASCII.HKL> <dmax> <dmin> <nshells> > out_file"
+    print "to save data to a file. First row will provide a description of each reported column."
+    print ""
     quit()
 
 def res(recip,A,B,C):
