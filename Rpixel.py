@@ -109,7 +109,7 @@ nshells = int(sys.argv[4])
 dmin = float(sys.argv[3])
 dmax = float(sys.argv[2])
 
-print "#1/d^2 R_meas R_pixel"
+print "#1/d^2      R_meas    R_pixel"
 
 shells = [dmax]
 
