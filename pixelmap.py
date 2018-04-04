@@ -29,6 +29,14 @@ if len(sys.argv) != 4:
 dmax = float(sys.argv[2])
 dmin = float(sys.argv[3])
 
+if dmax <= dmin:
+    print ""
+    print "Usage python pixelmap.py <XDS_ASCII.HKL> <dmax> <dmin> <nshells>"
+    print ""
+    print "dmax needs to be larger than dmin"
+    print ""
+    quit()
+	
 # Change to adjust scale range for the image
 scale = 15
 
@@ -135,5 +143,8 @@ plt.tight_layout()
 cbar = plt.colorbar(ax=[ax1], shrink=0.545, ticks=[-scale,-scale/2.0, 0, scale/2.0, scale])
 cbar.ax.set_yticklabels(['-%.1f\%%'%scale, '0\%','%.1f\%%'%scale])
 
-plt.savefig("Pixelmap.pdf")
+if numpy.max(JF1M_Delta_xy) == numpy.min(JF1M_Delta_xy) and numpy.min(JF1M_Delta_xy) == 0.0:
+    print "No reflections observed, please check input file"
+else:
+    plt.savefig("Pixelmap.pdf")
 print "Saved to Pixelmap.pdf"
