@@ -27,13 +27,7 @@ if len(sys.argv) != 5:
     print ""
     quit()
 
-if dmax <= dmin:
-    print ""
-    print "Usage python Rmeas.py <XDS_ASCII.HKL> <dmax> <dmin> <nshells>"
-    print ""
-    print "dmax needs to be larger than dmin"
-    print ""
-    quit()
+
 
 intensity = {}
 intensity_raw = {}
@@ -42,6 +36,14 @@ Isigma = {}
 
 dmax = float(sys.argv[2])
 dmin = float(sys.argv[3])
+
+if dmax <= numpy.abs(dmin):
+    print ""
+    print "Usage python Rmeas.py <XDS_ASCII.HKL> <dmax> <dmin> <nshells>"
+    print ""
+    print "dmax needs to be larger than dmin"
+    print ""
+    quit()
 
 dmin_auto = 0
 
