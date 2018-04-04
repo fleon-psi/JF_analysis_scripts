@@ -205,7 +205,7 @@ for i in range(len(shells)):
     else:
         shell_Rmerge[i] = -1.0
 
-print "# 1/d^2      d       N           Nunq      <Iobs>  Rmeas <I/sigma>mrg  <I>/<s>mrg     <Iraw>   Iraw(max)   Iraw(min) <I/sigma>unmrg <I>/<sigma>unmrg "
+print "# 1/d^2      d       N           Nunq     <Iobs>   Rmeas <I/sigma>mrg  <I>/<s>mrg   <Iraw>   Iraw(max)   Iraw(min) <I/sigma>unmrg <I>/<sigma>unmrg "
 
 
 for i in range(len(shells)):
