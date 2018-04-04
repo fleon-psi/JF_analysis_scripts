@@ -133,7 +133,7 @@ mpl.rcParams['axes.linewidth'] = 1
 
 plt.tight_layout()
 cbar = plt.colorbar(ax=[ax1], shrink=0.545, ticks=[-scale,-scale/2.0, 0, scale/2.0, scale])
-cbar.ax.set_yticklabels(['-%f.1\%'%scale, '0\%','%f.1\%'%scale])
+cbar.ax.set_yticklabels(['-%.1f\%'%scale, '0\%','%.1f\%'%scale])
 
 plt.savefig("Pixelmap.pdf")
 print "Saved to Pixelmap.pdf"
