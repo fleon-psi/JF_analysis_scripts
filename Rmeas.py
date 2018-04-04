@@ -21,6 +21,10 @@ if len(sys.argv) != 5:
     print "dmin - high resolution limit (if dmin is < 0, than dmin will be automatically extended to a value < |dmin|, if there reflections below the given limit, otherwise |dmin| will be used as cutoff)"
     print "nshells - number of resolution shells"
     print ""
+    print "Output is provided on standard output. Run: "
+    print "python Rmeas.py <XDS_ASCII.HKL> <dmax> <dmin> <nshells> > out_file"
+    print "to save data to a file. First row will provide a description of each reported column."
+    print ""
     quit()
 
 
@@ -29,8 +33,8 @@ intensity_raw = {}
 sigma = {}
 Isigma = {}
 
-dmin = float(sys.argv[2])
-dmax = float(sys.argv[3])
+dmax = float(sys.argv[2])
+dmin = float(sys.argv[3])
 
 dmin_auto = 0
 
