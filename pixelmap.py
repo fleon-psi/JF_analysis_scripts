@@ -26,8 +26,8 @@ if len(sys.argv) != 4:
     print ""
     quit()
 
-dmin = float(sys.argv[2])
-dmax = float(sys.argv[3])
+dmax = float(sys.argv[2])
+dmin = float(sys.argv[3])
 
 # Change to adjust scale range for the image
 scale = 15
@@ -133,7 +133,7 @@ mpl.rcParams['axes.linewidth'] = 1
 
 plt.tight_layout()
 cbar = plt.colorbar(ax=[ax1], shrink=0.545, ticks=[-scale,-scale/2.0, 0, scale/2.0, scale])
-cbar.ax.set_yticklabels(['-%.1f\%'%scale, '0\%','%.1f\%'%scale])
+cbar.ax.set_yticklabels(['-%.1f\%%'%scale, '0\%','%.1f\%%'%scale])
 
 plt.savefig("Pixelmap.pdf")
 print "Saved to Pixelmap.pdf"
