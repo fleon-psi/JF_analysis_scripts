@@ -102,7 +102,7 @@ def load_xds(in_filename, d1, d2):
          for j in range(10):
              R_pixel += numpy.abs(Delta_xy[i,j])
     R_pixel = R_pixel / Iobs_sum
-    print("%f %8.3f% %8.3f%"%(1/(d1**2),R_meas,R_pixel))
+    print("%f %8.3f %8.3f"%(1/(d1**2),R_meas,R_pixel))
 
 
 nshells = int(sys.argv[4])
