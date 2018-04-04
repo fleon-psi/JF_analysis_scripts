@@ -23,8 +23,8 @@ if len(sys.argv) != 5:
     print "python Rpixel.py <XDS_ASCII.HKL> <dmax> <dmin> <nshells> > out_file"
     print "to save data to a file. First row will provide a description of each reported column."
     print ""
-    quit()
-
+    quit()	
+	
 def res(recip,A,B,C):
     return 1/numpy.sqrt((recip[0]/A)**2+(recip[1]/B)**2+(recip[2]/C)**2)
 
@@ -108,6 +108,14 @@ def load_xds(in_filename, d1, d2):
 nshells = int(sys.argv[4])
 dmin = float(sys.argv[3])
 dmax = float(sys.argv[2])
+
+if dmax <= dmin:
+    print ""
+    print "Usage python Rmeas.py <XDS_ASCII.HKL> <dmax> <dmin> <nshells>"
+    print ""
+    print "dmax needs to be larger than dmin"
+    print ""
+    quit()
 
 print "#1/d^2      R_meas   R_pixel"
 
