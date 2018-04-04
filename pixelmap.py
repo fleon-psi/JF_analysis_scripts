@@ -141,7 +141,7 @@ mpl.rcParams['axes.linewidth'] = 1
 
 plt.tight_layout()
 cbar = plt.colorbar(ax=[ax1], shrink=0.545, ticks=[-scale,-scale/2.0, 0, scale/2.0, scale])
-cbar.ax.set_yticklabels(['-%.1f\%%'%scale, '-%.1f\%%'%scale/2.0, '0\%','%.1f\%%'%scale/2.0,'%.1f\%%'%scale])
+cbar.ax.set_yticklabels(['-%.1f\%%'%scale, '-%.1f\%%'%(scale/2.0), '0\%','%.1f\%%'%(scale/2.0),'%.1f\%%'%scale])
 
 if numpy.max(JF1M_Delta_xy) == numpy.min(JF1M_Delta_xy) and numpy.min(JF1M_Delta_xy) == 0.0:
     print "No reflections observed, please check input file"
