@@ -199,18 +199,16 @@ for i in range(len(shells)):
         shell_IS_1[i] = shell_IS_1[i]/shell_IS_2[i]
     if shell_ISunmrg_2[i] > 0:
         shell_ISunmrg_1[i] = shell_ISunmrg_1[i] / shell_ISunmrg_2[i]
-        shell_ISunmrg_mult_1[i] = shell_ISunmrg_mult_1[i] / shell_ISunmrg_2[i]
         shell_ISunmrg_3[i] = shell_ISunmrg_3[i] / shell_ISunmrg_4[i]
     if shell_Rmerge_2[i] > 0.0:
         shell_Rmerge[i] = shell_Rmerge_1[i] / shell_Rmerge_2[i]
     else:
         shell_Rmerge[i] = -1.0
 
-print "# 1/d^2      d       N           Nunq      <Iobs> Rmeas <I/sigma>mrg     <I>/<s>mrg <Iraw>   Iraw(max)   Iraw(min) <I/sigma>unmrg <sqrt(N)I/sigma>unmrg <I>/<sigma>unmrg q^2 "
+print "# 1/d^2      d       N           Nunq      <Iobs> Rmeas <I/sigma>mrg    <I>/<s>mrg <Iraw>   Iraw(max)   Iraw(min) <I/sigma>unmrg <I>/<sigma>unmrg "
 
 
 for i in range(len(shells)):
     if shell_len[i] > 0 and shell_Rmerge[i] >= 0.0 and shell_unique_merged[i] > 0:
-        q = shell_Iobs2[i]/(shell_Iobs2[i]-shell_Iobs[i]**2/shell_len[i])
-        print "%8.5f %6.2f %10d %10d %10.2f %6.2f%% %10.3f %10.3f %11.3f %11.3f %11.3f %11.4f %11.4f %11.4f %11.4f"%(1/(shells[i]**2), shells[i], int(shell_len[i]), int(shell_unique[i]), shell_Iobs[i]/shell_len[i], shell_Rmerge[i]*100, shell_IS[i]/ shell_unique_merged[i], shell_IS_1[i], shell_Iraw[i]/shell_len[i], shell_Iraw_max[i], shell_Iraw_min[i], shell_ISunmrg_1[i], shell_ISunmrg_mult_1[i],shell_ISunmrg_3[i], q) 
+        print "%8.5f %6.2f %10d %10d %10.2f %6.2f%% %10.3f %10.3f %11.3f %11.3f %11.3f %11.4f %11.4f"%(1/(shells[i]**2), shells[i], int(shell_len[i]), int(shell_unique[i]), shell_Iobs[i]/shell_len[i], shell_Rmerge[i]*100, shell_IS[i]/ shell_unique_merged[i], shell_IS_1[i], shell_Iraw[i]/shell_len[i], shell_Iraw_max[i], shell_Iraw_min[i], shell_ISunmrg_1[i],shell_ISunmrg_3[i]) 
 
