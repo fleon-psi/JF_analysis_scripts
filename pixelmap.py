@@ -21,10 +21,16 @@ if len(sys.argv) != 4:
     print "dmax - low resolution limit"
     print "dmin - high resolution limit"
     print ""
+    print "Resulting pixel map will be saved as Pixelmap.pdf"
+    print "To adjust image scale please modify the source code accordingly."
+    print ""
     quit()
 
 dmin = float(sys.argv[2])
 dmax = float(sys.argv[3])
+
+# Change to adjust scale range for the image
+scale = 15
 
 def res(recip,A,B,C):
     return 1/numpy.sqrt((recip[0]/A)**2+(recip[1]/B)**2+(recip[2]/C)**2)
@@ -106,8 +112,8 @@ JF1M_Delta_xy = numpy.zeros((10,10))
 
 load_xds(sys.argv[1], JF1M_Delta_xy)
 
-print numpy.max(JF1M_Delta_xy)
-print numpy.min(JF1M_Delta_xy)
+print "Min Delta_xy %f"%numpy.min(JF1M_Delta_xy)
+print "Max Delta_xy %f"%numpy.max(JF1M_Delta_xy)
 
 fig = plt.figure(figsize=(4,4))
 
@@ -118,7 +124,7 @@ mpl.rc('font', **font)
 mpl.rc('text', usetex=True)
 
 ax1 = fig.add_subplot(1,1,1)
-imgplot = plt.imshow(JF1M_Delta_xy, interpolation='nearest', cmap='bwr',vmin=-15, vmax=15)
+imgplot = plt.imshow(JF1M_Delta_xy, interpolation='nearest', cmap='bwr',vmin=-scale, vmax=scale)
 ax1.get_xaxis().set_ticks([])
 ax1.get_yaxis().set_ticks([])
 [i.set_linewidth(2) for i in ax1.spines.itervalues()]
@@ -126,7 +132,8 @@ ax1.get_yaxis().set_ticks([])
 mpl.rcParams['axes.linewidth'] = 1
 
 plt.tight_layout()
-cbar = plt.colorbar(ax=[ax1], shrink=0.545, ticks=[-15,-10, -5, 0, 5,10,15])
-cbar.ax.set_yticklabels(['-15\%', '-10\%', '-5\%', '0\%','5\%','10\%','15\%'])
+cbar = plt.colorbar(ax=[ax1], shrink=0.545, ticks=[-scale,-scale/2.0, 0, scale/2.0, scale])
+cbar.ax.set_yticklabels(['-%f.1\%'%scale, '0\%','%f.1\%'%scale])
 
-plt.savefig("Pixelmap.eps")
+plt.savefig("Pixelmap.pdf")
+print "Saved to Pixelmap.pdf"
