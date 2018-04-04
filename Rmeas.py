@@ -4,7 +4,7 @@
 # with significant contribution by Kay Diederichs (Uni Konstanz) and Meitian Wang (PSI)
 #
 
-import sys
+import sys,numpy
 
 if len(sys.argv) != 5:
     print ""
@@ -52,8 +52,6 @@ if dmin < 0:
     dmin_auto = 1
 
 nshells = int(sys.argv[4])
-
-import numpy
 
 def res(recip):
     return 1/numpy.sqrt((recip[0]/A)**2+(recip[1]/B)**2+(recip[2]/C)**2)
