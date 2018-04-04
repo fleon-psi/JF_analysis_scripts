@@ -31,7 +31,7 @@ def res(recip,A,B,C):
 def load_xds(in_filename, d1, d2):
     intensity = {}
     intensity_det = {}
-    with open('%s/XDS_ASCII.HKL'%in_filename,'r') as f:
+    with open(in_filename,'r') as f:
         for line in f:
 	    linespl = line.split()
 	    if '!SPACE_GROUP_NUMBER=' == linespl[0]:
@@ -106,8 +106,8 @@ def load_xds(in_filename, d1, d2):
 
 
 nshells = int(sys.argv[4])
-dmin = double(sys.argv[3])
-dmax = double(sys.argv[2])
+dmin = float(sys.argv[3])
+dmax = float(sys.argv[2])
 
 print "#1/d^2 R_meas R_pixel"
 
