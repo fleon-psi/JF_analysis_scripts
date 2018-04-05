@@ -1,5 +1,10 @@
-# JF_analysis_scripts
-Scripts to analyse data obtained with JUNGFRAU detector and processed with XDS
+# Contents
+Scripts to analyse data obtained with JUNGFRAU detector and processed with XDS:
+
+* Rmeas.py - Calculate standard statistics for a dataset with an arbitrary number of resolution shells.
+* Rpixel.py - Calculate Rmeas and Rpixel metrics for a dataset.
+* pixelmap.py - Generate a pixel map from XDS output.
+* CorrDataset.py - Match intensities and highest pixel counts (MAXC) between two datasets.
 
 # System requirements
 
